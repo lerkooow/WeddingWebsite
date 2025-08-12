@@ -1,0 +1,15 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  h3 {
+    font-size: 40px;
+    font-weight: 400;
+  }
+
+  p {
+    text-align: center;
+  }
+}

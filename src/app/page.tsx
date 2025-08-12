@@ -1,3 +1,4 @@
+import { Details } from "./components/Details";
 import { DressCode } from "./components/DressCode";
 import { Greetings } from "./components/Greetings";
 import { Location } from "./components/Location";
@@ -21,6 +22,9 @@ export default function Home() {
         <Separator hearts />
         <Schedule />
         <DressCode />
+        <Separator hearts />
+        <Details />
+        <Separator hearts />
       </div>
     </div>
   );
