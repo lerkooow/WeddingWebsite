@@ -46,13 +46,13 @@ export const Countdown = () => {
       <p className={s.countdown__title}>до свадьбы осталось:</p>
       <div className={s.countdown__container}>
         {timeLeft.map((item, index) => (
-          <>
-            <div key={index} className={s.countdown__wrapper}>
+          <div key={index} className={s.countdown__wrapper}>
+            <div>
               <p>{item.value}</p>
               <span>{item.label}</span>
             </div>
-            {index + 1 < timeLeft.length && <p className={s.countdown__separator}>:</p>}
-          </>
+            {index < timeLeft.length - 1 && <p className={s.countdown__separator}>:</p>}
+          </div>
         ))}
       </div>
     </div>
