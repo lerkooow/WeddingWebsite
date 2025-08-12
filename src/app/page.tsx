@@ -1,6 +1,6 @@
-import { Button } from "./components/Button";
 import { Greetings } from "./components/Greetings";
 import { Location } from "./components/Location";
+import { Schedule } from "./components/Schedule";
 import { Separator } from "./components/Separator";
 import { WelcomeSection } from "./components/WelcomeSection";
 import { Countdown } from "./components/Сountdown";
@@ -17,6 +17,8 @@ export default function Home() {
         <Separator />
         <Countdown />
         <Location />
+        <Separator hearts />
+        <Schedule />
       </div>
     </div>
   );
