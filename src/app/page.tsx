@@ -1,5 +1,5 @@
-import { Greetings } from "./components/Greetings/Greetings";
-import { Separator } from "./components/Separator/Separator";
+import { Greetings } from "./components/Greetings";
+import { Separator } from "./components/Separator";
 import { WelcomeSection } from "./components/WelcomeSection";
 
 import s from "./page.module.scss";

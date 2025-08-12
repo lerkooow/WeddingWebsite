@@ -1,7 +1,8 @@
-import "./globals.scss";
+import type { Metadata } from "next";
 
 import { Libre_Caslon_Display, Italianno, Alumni_Sans } from "next/font/google";
-import type { Metadata } from "next";
+
+import "./globals.scss";
 
 const libre = Libre_Caslon_Display({
   subsets: ["latin"],
