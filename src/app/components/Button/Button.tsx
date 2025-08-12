@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 
-import s from "./Button.module.scss";
 import Link from "next/link";
+
+import s from "./Button.module.scss";
 
 type TButtonProps = {
   children: ReactNode;
