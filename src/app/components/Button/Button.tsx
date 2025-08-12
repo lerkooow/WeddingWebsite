@@ -11,7 +11,7 @@ type TButtonProps = {
 
 export const Button = ({ children, href }: TButtonProps) => {
   return (
-    <Link href={href} className={s.button}>
+    <Link href={href} className={s.button} target="_blank">
       <div>
         <p>{children}</p>
       </div>
