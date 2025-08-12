@@ -4,6 +4,10 @@ type TSchedule = {
   description: string;
 };
 
+type TDressCodeColor = {
+  color: string;
+};
+
 export const schedule: TSchedule[] = [
   {
     time: "16:00",
@@ -25,4 +29,14 @@ export const schedule: TSchedule[] = [
     title: "ФИНАЛЬНАЯ ЧАСТЬ",
     description: "Романтичексий фейверк с самыми близкими людьми",
   },
+];
+
+export const dressCodeColors: TDressCodeColor[] = [
+  { color: "#D9D9D9" },
+  { color: "#D9D9D9" },
+  { color: "#D9D9D9" },
+  { color: "#D9D9D9" },
+  { color: "#D9D9D9" },
+  { color: "#D9D9D9" },
+  { color: "#D9D9D9" },
 ];
