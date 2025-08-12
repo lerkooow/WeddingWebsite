@@ -1,0 +1,29 @@
+.countdown {
+  &__title {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__container {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      font-size: 48px;
+    }
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  &__separator {
+    font-size: 48px;
+  }
+}
