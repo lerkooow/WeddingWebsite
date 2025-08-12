@@ -1,5 +1,17 @@
-import s from "./page.module.css";
+import { Greetings } from "./components/Greetings/Greetings";
+import { Separator } from "./components/Separator/Separator";
+import { WelcomeSection } from "./components/WelcomeSection";
+
+import s from "./page.module.scss";
 
 export default function Home() {
-  return <div className={s.page}>Hello</div>;
+  return (
+    <div className={s.page}>
+      <div className={s.page__container}>
+        <WelcomeSection />
+        <Separator hearts />
+        <Greetings />
+      </div>
+    </div>
+  );
 }

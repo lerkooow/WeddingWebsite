@@ -1,0 +1,15 @@
+.greetings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  p {
+    text-align: center;
+  }
+}
