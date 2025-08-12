@@ -26,4 +26,10 @@
   &__separator {
     font-size: 48px;
   }
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

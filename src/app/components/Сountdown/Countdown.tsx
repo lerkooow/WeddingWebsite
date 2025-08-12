@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 
 import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from "date-fns";
+import { toZonedTime } from "date-fns-tz";
 
 import s from "./Countdown.module.scss";
 
 export const Countdown = () => {
-  const weddingDate = new Date(2026, 5, 27, 16, 0, 0);
+  const timeZone = "Asia/Yekaterinburg";
+  const weddingDate = toZonedTime("2026-06-27T16:00:00", timeZone);
 
   const [timeLeft, setTimeLeft] = useState<{ label: string; value: number }[]>([]);
 
@@ -47,7 +49,7 @@ export const Countdown = () => {
       <div className={s.countdown__container}>
         {timeLeft.map((item, index) => (
           <div key={index} className={s.countdown__wrapper}>
-            <div>
+            <div className={s.countdown__date}>
               <p>{item.value}</p>
               <span>{item.label}</span>
             </div>
