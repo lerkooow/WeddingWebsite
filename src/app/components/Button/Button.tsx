@@ -14,14 +14,14 @@ export const Button = ({ children, href = "#", link }: TButtonProps) => {
   return (
     <>
       {link ? (
-        <Link href={href} className={s.button} target="_blank" rel="noopener noreferrer">
+        <Link href={href} className={s.link} target="_blank" rel="noopener noreferrer">
           <div>
             <p>{children}</p>
           </div>
         </Link>
       ) : (
         <button className={s.button} type="submit">
-          {children}
+          <p>{children}</p>
         </button>
       )}
     </>

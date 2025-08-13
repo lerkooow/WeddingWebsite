@@ -16,7 +16,9 @@ export const Location = () => {
         </div>
       </div>
       <div className={s.location__button}>
-        <Button href="https://go.2gis.com/yf54F">ПЕРЕЙТИ К КАРТЕ</Button>
+        <Button href="https://go.2gis.com/yf54F" link>
+          ПЕРЕЙТИ К КАРТЕ
+        </Button>
       </div>
     </>
   );
