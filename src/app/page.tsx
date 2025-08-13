@@ -1,5 +1,8 @@
+"use client";
+
 import { Details } from "./components/Details";
 import { DressCode } from "./components/DressCode";
+import { Form } from "./components/Form";
 import { Greetings } from "./components/Greetings";
 import { Location } from "./components/Location";
 import { Schedule } from "./components/Schedule";
@@ -25,6 +28,7 @@ export default function Home() {
         <Separator hearts />
         <Details />
         <Separator hearts />
+        <Form />
       </div>
     </div>
   );

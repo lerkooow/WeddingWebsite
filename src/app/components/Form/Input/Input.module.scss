@@ -1,0 +1,16 @@
+.input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #000;
+
+  &::placeholder {
+    font-size: 15px;
+    font-family: var(--font-alumni);
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+}

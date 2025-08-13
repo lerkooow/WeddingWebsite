@@ -1,0 +1,55 @@
+.form {
+  max-width: 375px;
+  width: 100%;
+
+  h3 {
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 375px;
+    width: 100%;
+
+    label {
+      font-size: 20px;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    label {
+      font-size: 15px;
+    }
+  }
+
+  &__checkboxWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
