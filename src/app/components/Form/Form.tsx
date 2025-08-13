@@ -11,6 +11,7 @@ import { Button } from "../Button";
 import { drinksData } from "@/data";
 
 import s from "./Form.module.scss";
+import { Modal } from "../Modal";
 
 export const Form = () => {
   const [attendance, setAttendance] = useState<"yes" | "no" | "">("");
@@ -20,9 +21,15 @@ export const Form = () => {
   const [otherDrink, setOtherDrink] = useState("");
   const [allergies, setAllergies] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const toggleDrink = (drink: string) => {
     setDrinks((prev) => (prev.includes(drink) ? prev.filter((d) => d !== drink) : [...prev, drink]));
+  };
+
+  const closeSuccessModal = () => {
+    setShowSuccessModal(false);
+    setStatus("idle");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -38,6 +45,7 @@ export const Form = () => {
       });
 
       setStatus("success");
+      setShowSuccessModal(true);
 
       setAttendance("");
       setFullName("");
@@ -96,11 +104,13 @@ export const Form = () => {
         </div>
 
         <div className={s.form__button}>
-          <Button>
-            {status === "loading" ? <Image src="/loading.svg" alt="Loading" width={24} height={24} className={s.form__loadingIcon} /> : status === "success" ? "Отправлено!" : "ОТПРАВИТЬ АНКЕТУ"}
+          <Button disabled={status === "loading"}>
+            {status === "loading" ? <Image src="/loading.svg" alt="Loading" width={24} height={24} className={s.form__loadingIcon} /> : "ОТПРАВИТЬ АНКЕТУ"}
           </Button>
         </div>
       </form>
+
+      {showSuccessModal && <Modal closeSuccessModal={closeSuccessModal} />}
     </div>
   );
 };
