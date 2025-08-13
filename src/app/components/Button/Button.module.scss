@@ -9,11 +9,13 @@
   color: #000;
   transition: all 0.3s ease;
   background-color: transparent;
+  height: 34px;
 
   p {
     display: flex;
     justify-content: center;
     font-family: var(--font-alumni);
+    font-size: 20px;
   }
 
   &:hover {

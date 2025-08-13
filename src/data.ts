@@ -40,3 +40,5 @@ export const dressCodeColors: TDressCodeColor[] = [
   { color: "#D9D9D9" },
   { color: "#D9D9D9" },
 ];
+
+export const drinksData: string[] = ["Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];
