@@ -2,9 +2,10 @@
   width: 100%;
   border: 0;
   border-bottom: 1px solid #000;
+  height: 24px;
 
   &::placeholder {
-    font-size: 15px;
+    font-size: 24px;
     font-family: var(--font-alumni);
   }
 

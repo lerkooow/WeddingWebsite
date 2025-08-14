@@ -33,13 +33,13 @@ export const schedule: TSchedule[] = [
 ];
 
 export const dressCodeColors: TDressCodeColor[] = [
-  { color: "#D9D9D9" },
-  { color: "#D9D9D9" },
-  { color: "#D9D9D9" },
-  { color: "#D9D9D9" },
-  { color: "#D9D9D9" },
-  { color: "#D9D9D9" },
-  { color: "#D9D9D9" },
+  { color: "#02315E" },
+  { color: "#00457E" },
+  { color: "#2F70AF" },
+  { color: "#B9848C" },
+  { color: "#dde8f0" },
+  { color: "#c1e3ff" },
+  { color: "#A0C8C3" },
 ];
 
 export const drinksData: string[] = ["Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];
