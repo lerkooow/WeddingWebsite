@@ -1,20 +1,29 @@
 .location {
-  position: relative;
+  padding: 60px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h3 {
     font-weight: 400;
-    font-size: 48px;
-    transform: rotate(270deg);
-    position: absolute;
-    left: -75px;
-    bottom: 50px;
+    font-size: clamp(28px, 5vw, 48px);
+    text-align: center;
+    margin-bottom: 24px;
   }
 
   &__map {
-    max-width: 250px;
+    max-width: 300px;
     width: 100%;
     border: 1px solid #000;
     padding: 12.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    p {
+      font-size: clamp(16px, 5vw, 24px);
+    }
   }
 
   &__image {
@@ -28,7 +37,11 @@
   &__button {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
   }
 }

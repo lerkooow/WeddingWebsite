@@ -1,15 +1,25 @@
 .greetings {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
+  padding: 60px 20px;
+  margin: 0 auto;
+  max-width: 800px;
 
   h2 {
-    font-size: 36px;
+    font-size: clamp(28px, 5vw, 48px);
     font-weight: 400;
   }
 
   p {
     text-align: center;
+    font-size: clamp(16px, 2.5vw, 28px);
+    line-height: 1.7;
+    color: #3d2f24;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
   }
 }

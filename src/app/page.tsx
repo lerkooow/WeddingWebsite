@@ -17,13 +17,14 @@ export default function Home() {
     <div className={s.page}>
       <div className={s.page__container}>
         <WelcomeSection />
-        <Separator hearts />
         <Greetings />
-        <Separator />
+        <Separator hearts />
         <Countdown />
+        <Separator hearts />
         <Location />
         <Separator hearts />
         <Schedule />
+        <Separator hearts />
         <DressCode />
         <Separator hearts />
         <Details />

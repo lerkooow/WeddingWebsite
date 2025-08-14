@@ -5,13 +5,11 @@
   font-family: var(--font-alumni);
 
   &__container {
-    max-width: 375px;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 42px;
     margin-bottom: 48px;
   }
 }
