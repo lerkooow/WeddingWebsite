@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
@@ -9,7 +9,7 @@ import s from "./Countdown.module.scss";
 
 export const Countdown = () => {
   const timeZone = "Asia/Yekaterinburg";
-  const weddingDate = toZonedTime("2026-06-27T16:00:00", timeZone);
+  const weddingDate = useMemo(() => toZonedTime("2026-06-27T16:00:00", timeZone), [timeZone]);
 
   const [timeLeft, setTimeLeft] = useState<{ label: string; value: number }[]>([]);
 
@@ -22,7 +22,7 @@ export const Countdown = () => {
     return forms[2];
   };
 
-  const updateTimeLeft = () => {
+  const updateTimeLeft = useCallback(() => {
     const now = new Date();
     const days = differenceInDays(weddingDate, now);
     const hours = differenceInHours(weddingDate, now) % 24;
@@ -35,13 +35,13 @@ export const Countdown = () => {
       { value: minutes, label: declension(minutes, ["минута", "минуты", "минут"]) },
       { value: seconds, label: declension(seconds, ["секунда", "секунды", "секунд"]) },
     ]);
-  };
+  }, [weddingDate]);
 
   useEffect(() => {
     updateTimeLeft();
     const timer = setInterval(updateTimeLeft, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [updateTimeLeft]);
 
   return (
     <div className={s.countdown}>
