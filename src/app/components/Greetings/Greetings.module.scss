@@ -3,23 +3,15 @@
   flex-direction: column;
   gap: 24px;
   align-items: center;
-  padding: 60px 20px;
+  padding: 48px 0;
   margin: 0 auto;
   max-width: 800px;
-
-  h2 {
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 400;
-  }
+  font-family: var(--font-montserratAlt);
 
   p {
     text-align: center;
-    font-size: clamp(16px, 2.5vw, 28px);
+    font-size: 16px;
     line-height: 1.7;
-    color: #3d2f24;
-  }
-
-  @media (max-width: 768px) {
-    padding: 40px 20px;
+    max-width: 320px;
   }
 }

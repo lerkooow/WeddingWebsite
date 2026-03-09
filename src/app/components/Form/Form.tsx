@@ -1,22 +1,36 @@
 "use client";
 
 import { useState } from "react";
-
 import Image from "next/image";
-
-import { Input } from "./Input";
-import { Checkbox } from "./Checkbox";
-import { Button } from "../Button";
 
 import { drinksData } from "@/data";
 
 import s from "./Form.module.scss";
 import { Modal } from "../Modal";
 
+type Attendance = "yes" | "no" | "plus" | "";
+
+const DrinksBlock = ({ drinks, toggleDrink, otherDrink, setOtherDrink }: { drinks: string[]; toggleDrink: (d: string) => void; otherDrink: string; setOtherDrink: (v: string) => void }) => (
+  <div className={s.form__checkboxWrapper}>
+    <p>Предпочтения по алкоголю</p>
+    {drinksData.map((drink) => (
+      <div key={drink} className={s.form__checkbox}>
+        <input type="checkbox" id={`drink-${drink}`} checked={drinks.includes(drink)} onChange={() => toggleDrink(drink)} />
+        <label htmlFor={`drink-${drink}`}>{drink}</label>
+      </div>
+    ))}
+    <div className={s.form__item}>
+      <label>Свой вариант:</label>
+      <input className={s.form__input} placeholder="Другое" value={otherDrink} onChange={(e) => setOtherDrink(e.target.value)} />
+    </div>
+  </div>
+);
+
 export const Form = () => {
-  const [attendance, setAttendance] = useState<"yes" | "no" | "">("");
+  const [attendance, setAttendance] = useState<Attendance>("");
   const [fullName, setFullName] = useState("");
   const [plusOneName, setPlusOneName] = useState("");
+  const [children, setChildren] = useState("");
   const [drinks, setDrinks] = useState<string[]>([]);
   const [otherDrink, setOtherDrink] = useState("");
   const [allergies, setAllergies] = useState("");
@@ -37,22 +51,37 @@ export const Form = () => {
     setStatus("loading");
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbyUBV9V20oh5Py5HnoYWHrx0h-iZsy0oz5zuQLHcTdxY4MmLgYQn5QTeA8x7HqDj3jQ0A/exec", {
+      const formData = new FormData();
+
+      formData.append("attendance", attendance);
+      formData.append("fullName", fullName);
+      formData.append("plusOneName", plusOneName);
+      formData.append("children", children);
+      formData.append("drinks", drinks.join(", "));
+      formData.append("otherDrink", otherDrink);
+      formData.append("allergies", allergies);
+
+      const res = await fetch("https://script.google.com/macros/s/AKfycbw4llP80CCsCfcPU-n4J8fSvWJW3aMXRIqen57RzNTSPtHVwVvLMS7t69-xOmcxrPz2Jg/exec", {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ attendance, fullName, plusOneName, drinks, otherDrink, allergies }),
+        body: formData,
       });
 
-      setStatus("success");
-      setShowSuccessModal(true);
+      const data = await res.json();
 
-      setAttendance("");
-      setFullName("");
-      setPlusOneName("");
-      setDrinks([]);
-      setOtherDrink("");
-      setAllergies("");
+      if (data.result === "success") {
+        setStatus("success");
+        setShowSuccessModal(true);
+
+        setAttendance("");
+        setFullName("");
+        setPlusOneName("");
+        setChildren("");
+        setDrinks([]);
+        setOtherDrink("");
+        setAllergies("");
+      } else {
+        throw new Error("Ошибка отправки");
+      }
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -61,53 +90,84 @@ export const Form = () => {
 
   return (
     <div className={s.form}>
-      <h3>АНКЕТА</h3>
+      <h3>Анкета гостя</h3>
+      <p className={s.form__subtitle}>
+        Чтобы сделать этот день комфортным
+        <br />
+        для всех, просим заполнить данную форму:
+      </p>
+
       <form className={s.form__wrapper} onSubmit={handleSubmit}>
-        <div className={s.form__checkboxWrapper}>
+        <div className={s.form__radioGroup}>
           <p>Вы будете присутствовать?</p>
-          <div className={s.form__checkbox}>
-            <Checkbox checked={attendance === "yes"} onChange={() => setAttendance("yes")} />
-            <label>Да, обязательно!</label>
-          </div>
-          <div className={s.form__checkbox}>
-            <Checkbox checked={attendance === "no"} onChange={() => setAttendance("no")} />
-            <label>Нет, к сожалению</label>
-          </div>
-        </div>
-
-        <div className={s.form__item}>
-          <label>Имя Фамилия</label>
-          <Input placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-        </div>
-
-        <div className={s.form__item}>
-          <label>Будет ли с вами человек +1? Если да, напишите его имя и фамилию</label>
-          <Input placeholder="Имя Фамилия" value={plusOneName} onChange={(e) => setPlusOneName(e.target.value)} />
-        </div>
-
-        <div className={s.form__checkboxWrapper}>
-          <p>Предпочтения по напиткам (можно выбрать несколько)</p>
-          {drinksData.map((drink) => (
-            <div key={drink} className={s.form__checkbox}>
-              <Checkbox checked={drinks.includes(drink)} onChange={() => toggleDrink(drink)} />
-              <label>{drink}</label>
+          {[
+            { value: "yes", label: "Да, обязательно!" },
+            { value: "no", label: "Нет, к сожалению(" },
+            { value: "plus", label: "Да, и буду с парой" },
+          ].map(({ value, label }) => (
+            <div key={value} className={s.form__radio}>
+              <input type="radio" id={`attendance-${value}`} name="attendance" checked={attendance === value} onChange={() => setAttendance(value as Attendance)} />
+              <label htmlFor={`attendance-${value}`}>{label}</label>
             </div>
           ))}
-          <div className={s.form__item}>
-            <Input placeholder="Другое" value={otherDrink} onChange={(e) => setOtherDrink(e.target.value)} />
+        </div>
+
+        {attendance === "no" && (
+          <div className={s.form__fieldsBlock}>
+            <div className={s.form__item}>
+              <label>Имя Фамилия</label>
+              <input className={s.form__input} placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className={s.form__item}>
-          <label>Аллергии, непереносимость продуктов</label>
-          <Input placeholder="У меня аллергия на..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
-        </div>
+        {attendance === "yes" && (
+          <div className={s.form__fieldsBlock}>
+            <div className={s.form__item}>
+              <label>Имя Фамилия</label>
+              <input className={s.form__input} placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+            </div>
+            <div className={s.form__item}>
+              <label>Дети (имя/возраст, если будут)</label>
+              <input className={s.form__input} placeholder="Имя, возраст" value={children} onChange={(e) => setChildren(e.target.value)} />
+            </div>
+            <div className={s.form__item}>
+              <label>Аллергия, предпочтения по еде (рыба, мясо, веганское и т.д.)</label>
+              <input className={s.form__input} placeholder="У меня аллергия на..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
+            </div>
+            <DrinksBlock drinks={drinks} toggleDrink={toggleDrink} otherDrink={otherDrink} setOtherDrink={setOtherDrink} />
+          </div>
+        )}
 
-        <div className={s.form__button}>
-          <Button disabled={status === "loading"}>
-            {status === "loading" ? <Image src="/loading.svg" alt="Loading" width={24} height={24} className={s.form__loadingIcon} /> : "ОТПРАВИТЬ АНКЕТУ"}
-          </Button>
-        </div>
+        {attendance === "plus" && (
+          <div className={s.form__fieldsBlock}>
+            <div className={s.form__item}>
+              <label>Имя Фамилия</label>
+              <input className={s.form__input} placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+            </div>
+            <div className={s.form__item}>
+              <label>Имя Фамилия пары</label>
+              <input className={s.form__input} placeholder="Имя Фамилия пары" value={plusOneName} onChange={(e) => setPlusOneName(e.target.value)} />
+            </div>
+            <div className={s.form__item}>
+              <label>Дети (имя/возраст, если будут)</label>
+              <input className={s.form__input} placeholder="Имя, возраст" value={children} onChange={(e) => setChildren(e.target.value)} />
+            </div>
+            <div className={s.form__item}>
+              <label>Аллергия, предпочтения по еде (рыба, мясо, веганское и т.д.)</label>
+              <input className={s.form__input} placeholder="У меня аллергия на..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
+            </div>
+            <DrinksBlock drinks={drinks} toggleDrink={toggleDrink} otherDrink={otherDrink} setOtherDrink={setOtherDrink} />
+          </div>
+        )}
+
+        {attendance && (
+          <div className={s.form__button}>
+            <button type="submit" className={s.form__submitBtn} disabled={status === "loading"}>
+              {status === "loading" ? <Image src="/loading.svg" alt="Loading" width={20} height={20} /> : "Отправить"}
+            </button>
+          </div>
+        )}
       </form>
 
       {showSuccessModal && <Modal closeSuccessModal={closeSuccessModal} />}

@@ -1,50 +1,60 @@
 .dressCode {
-  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 12px;
   max-width: 800px;
   width: 100%;
+  background-color: #a0bbd6;
+  color: #fdf5e9;
+  align-items: center;
+  padding-bottom: 48px;
 
   h3 {
+    font-size: 32px;
     font-weight: 400;
-    font-size: clamp(28px, 5vw, 48px);
     text-align: center;
     margin-bottom: 24px;
   }
 
-  &__container {
-    max-width: 280px;
-    width: 100%;
-    border: 1px solid #000;
-    padding: 12.5px;
-    position: relative;
+  &__wrapperDed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__image {
-    object-fit: cover;
-  }
-
-  &__color {
-    width: 30px;
-    height: 30px;
-  }
-
-  &__wrapper {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
+    margin-bottom: 48px;
   }
 
   &__description {
-    font-size: clamp(16px, 5vw, 26px);
-    margin-top: 12px;
-    text-align: end;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 320px;
+    font-family: var(--font-montserratAlt);
+    margin-bottom: 48px;
   }
 
-  @media (max-width: 768px) {
-    padding: 40px 20px;
+  &__buttonWrapper {
+    max-width: 320px;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 24px;
+    border: 1px solid #fefaef;
+    background-color: #fefaf020;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #fefaf04d;
+    }
+  }
+
+  &__button {
+    color: #fefaef;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 4px 0;
   }
 }

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "../Button";
 
 import s from "./Location.module.scss";
+import Link from "next/link";
 
 export const Location = () => {
   return (
@@ -13,18 +14,17 @@ export const Location = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <h3>ЛОКАЦИЯ</h3>
+      <h3>Место проведения</h3>
+
       <motion.div className={s.location__map} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
-        <Image src="/location.jpg" alt="Location" width={250} height={250} className={s.location__image} />
-        <p>Хотим Едим, загородный клуб</p>
-        <p className={s.location__address}>Красивая поляна, 4/1</p>
+        <p>Шатер Хотим Едим</p>
+        <p className={s.location__address}>г. Уфа, Озеро Архимандритское</p>
+        <Image src="/location.png" alt="Location" width={440} height={320} className={s.location__image} />
       </motion.div>
 
-      <motion.div className={s.location__button} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
-        <Button href="https://go.2gis.com/yf54F" link>
-          ПЕРЕЙТИ К КАРТЕ
-        </Button>
-      </motion.div>
+      <motion.button className={s.location__button} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
+        <Link href="https://go.2gis.com/n25sT">Открыть карту</Link>
+      </motion.button>
     </motion.div>
   );
 };

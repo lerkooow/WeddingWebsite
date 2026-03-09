@@ -45,7 +45,7 @@ export const Countdown = () => {
 
   return (
     <div className={s.countdown}>
-      <p className={s.countdown__title}>до свадьбы осталось:</p>
+      <p className={s.countdown__title}>мы скажем “да” через...</p>
       <div className={s.countdown__container}>
         {timeLeft.map((item, index) => (
           <div key={index} className={s.countdown__wrapper}>

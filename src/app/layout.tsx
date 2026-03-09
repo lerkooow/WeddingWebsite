@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Libre_Caslon_Display, Italianno, Alumni_Sans } from "next/font/google";
+import { Libre_Caslon_Display, Italianno, Alumni_Sans, Great_Vibes, Montserrat_Alternates, Montserrat } from "next/font/google";
 
 import "./globals.scss";
 
@@ -8,6 +8,27 @@ const libre = Libre_Caslon_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-libre",
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin", "cyrillic"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-great",
+});
+
+const montserratAlternates = Montserrat_Alternates({
+  subsets: ["latin", "cyrillic"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-montserratAlt",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin", "cyrillic"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 const italianno = Italianno({
@@ -33,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${libre.variable} ${italianno.variable} ${alumniSans.variable}`}>{children}</body>
+      <body className={`${montserratAlternates.variable} ${montserrat.variable} ${greatVibes.variable} ${libre.variable} ${italianno.variable} ${alumniSans.variable}`}>{children}</body>
     </html>
   );
 }

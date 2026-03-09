@@ -1,72 +1,209 @@
 .form {
-  max-width: 800px;
+  max-width: 480px;
   width: 100%;
-  padding: 60px 20px;
+  padding: 60px 32px;
+  border-radius: 24px;
+  font-size: 16px;
 
   h3 {
+    font-size: 32px;
     font-weight: 400;
-    font-size: clamp(28px, 5vw, 48px);
     text-align: center;
     margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 32px;
   }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   &__item {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
 
     label {
-      font-size: clamp(20px, 5vw, 32px);
+      line-height: 1.4;
+    }
+  }
+
+  &__radio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    label {
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid #6a90b5;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:checked {
+        border-color: #6a90b5;
+        background: #6a90b5;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #fdf6ee;
+        }
+      }
+    }
+  }
+
+  &__radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    p {
+      margin-bottom: 4px;
     }
   }
 
   &__checkbox {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    cursor: pointer;
 
     label {
-      font-size: clamp(15px, 5vw, 26px);
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid #6a90b5;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:checked {
+        border-color: #6a90b5;
+        background: #6a90b5;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 6px;
+          border-left: 1.5px solid #fdf6ee;
+          border-bottom: 1.5px solid #fdf6ee;
+          transform: translate(-50%, -65%) rotate(-45deg);
+        }
+      }
     }
   }
 
   &__checkboxWrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+  }
 
-    p {
-      font-size: clamp(20px, 5vw, 32px);
+  &__input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 50px;
+    border: 1.5px solid #6a90b5;
+    background: transparent;
+    color: #6a90b5;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #6a90b5;
     }
+
+    &:focus {
+      border-color: #6a90b5;
+    }
+  }
+
+  &__fieldsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 0.3s ease;
   }
 
   &__button {
     display: flex;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 8px;
   }
 
-  @keyframes spin {
+  &__submitBtn {
+    padding: 12px 40px;
+    border-radius: 50px;
+    border: 1.5px solid #6a90b5;
+    background: transparent;
+    color: #6a90b5;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #6a90b5;
+      color: #fdf6ee;
+      border-color: #6a90b5;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  @keyframes fadeIn {
     from {
-      transform: rotate(0deg);
+      opacity: 0;
+      transform: translateY(-8px);
     }
     to {
-      transform: rotate(360deg);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  &__loadingIcon {
-    animation: spin 1s linear infinite;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 520px) {
     padding: 40px 20px;
+    border-radius: 0;
   }
 }

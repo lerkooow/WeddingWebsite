@@ -16,7 +16,7 @@ export const Modal = ({ closeSuccessModal }: TModalProps) => {
         </div>
         <div className={s.modal__body}>
           <p>Ваша анкета успешно отправлена!</p>
-          <p>Мы очень ждем встречи с вами ❤️</p>
+          <p>Мы очень ждем встречи с вами</p>
         </div>
       </div>
     </div>
