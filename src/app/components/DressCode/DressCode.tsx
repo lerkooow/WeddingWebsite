@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { dressCodeColors } from "@/data";
 
 import s from "./DressCode.module.scss";
 import Link from "next/link";
