@@ -31,4 +31,4 @@ export const schedule: TSchedule[] = [
   },
 ];
 
-export const drinksData: string[] = ["Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];
+export const drinksData: string[] = ["Не пью", "Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];

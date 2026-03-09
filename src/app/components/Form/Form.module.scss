@@ -165,24 +165,38 @@
 
   &__button {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin-top: 8px;
   }
 
+  &__hint {
+    font-size: 13px;
+    color: #b07b7b;
+    text-align: center;
+    font-family: var(--font-montserratAlt);
+    animation: fadeIn 0.3s ease;
+  }
+
   &__submitBtn {
-    padding: 12px 40px;
-    border-radius: 50px;
-    border: 1.5px solid #6a90b5;
-    background: transparent;
+    max-width: 375px;
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+    border-radius: 24px;
+    border: 1px solid #6a90b5;
+    background-color: #fefaf020;
+    transition: background-color 0.3s ease;
     color: #6a90b5;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
     cursor: pointer;
-    letter-spacing: 0.05em;
-    transition: all 0.2s ease;
 
     &:hover {
-      background: #6a90b5;
-      color: #fdf6ee;
-      border-color: #6a90b5;
+      background-color: #6a90b51f;
     }
 
     &:disabled {

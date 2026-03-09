@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Button } from "../Button";
 
 import s from "./Location.module.scss";
 import Link from "next/link";

@@ -12,7 +12,7 @@ type Attendance = "yes" | "no" | "plus" | "";
 
 const DrinksBlock = ({ drinks, toggleDrink, otherDrink, setOtherDrink }: { drinks: string[]; toggleDrink: (d: string) => void; otherDrink: string; setOtherDrink: (v: string) => void }) => (
   <div className={s.form__checkboxWrapper}>
-    <p>Предпочтения по алкоголю</p>
+    <p>Предпочтения по алкоголю (можно выбрать несколько вариантов)</p>
     {drinksData.map((drink) => (
       <div key={drink} className={s.form__checkbox}>
         <input type="checkbox" id={`drink-${drink}`} checked={drinks.includes(drink)} onChange={() => toggleDrink(drink)} />
@@ -40,6 +40,14 @@ export const Form = () => {
   const toggleDrink = (drink: string) => {
     setDrinks((prev) => (prev.includes(drink) ? prev.filter((d) => d !== drink) : [...prev, drink]));
   };
+
+  const isFormValid = (() => {
+    if (!attendance) return false;
+    if (attendance === "no") return fullName.trim() !== "";
+    if (attendance === "yes") return fullName.trim() !== "";
+    if (attendance === "plus") return fullName.trim() !== "" && plusOneName.trim() !== "";
+    return false;
+  })();
 
   const closeSuccessModal = () => {
     setShowSuccessModal(false);
@@ -91,12 +99,6 @@ export const Form = () => {
   return (
     <div className={s.form}>
       <h3>Анкета гостя</h3>
-      <p className={s.form__subtitle}>
-        Чтобы сделать этот день комфортным
-        <br />
-        для всех, просим заполнить данную форму:
-      </p>
-
       <form className={s.form__wrapper} onSubmit={handleSubmit}>
         <div className={s.form__radioGroup}>
           <p>Вы будете присутствовать?</p>
@@ -115,7 +117,7 @@ export const Form = () => {
         {attendance === "no" && (
           <div className={s.form__fieldsBlock}>
             <div className={s.form__item}>
-              <label>Имя Фамилия</label>
+              <label>Имя Фамилия (обязательно)</label>
               <input className={s.form__input} placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
             </div>
           </div>
@@ -124,7 +126,7 @@ export const Form = () => {
         {attendance === "yes" && (
           <div className={s.form__fieldsBlock}>
             <div className={s.form__item}>
-              <label>Имя Фамилия</label>
+              <label>Имя Фамилия (обязательно)</label>
               <input className={s.form__input} placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
             </div>
             <div className={s.form__item}>
@@ -142,11 +144,11 @@ export const Form = () => {
         {attendance === "plus" && (
           <div className={s.form__fieldsBlock}>
             <div className={s.form__item}>
-              <label>Имя Фамилия</label>
+              <label>Имя Фамилия (обязательно)</label>
               <input className={s.form__input} placeholder="Имя Фамилия" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
             </div>
             <div className={s.form__item}>
-              <label>Имя Фамилия пары</label>
+              <label>Имя Фамилия пары (обязательно)</label>
               <input className={s.form__input} placeholder="Имя Фамилия пары" value={plusOneName} onChange={(e) => setPlusOneName(e.target.value)} />
             </div>
             <div className={s.form__item}>
@@ -163,7 +165,7 @@ export const Form = () => {
 
         {attendance && (
           <div className={s.form__button}>
-            <button type="submit" className={s.form__submitBtn} disabled={status === "loading"}>
+            <button type="submit" className={s.form__submitBtn} disabled={status === "loading" || !isFormValid}>
               {status === "loading" ? <Image src="/loading.svg" alt="Loading" width={20} height={20} /> : "Отправить"}
             </button>
           </div>
