@@ -11,7 +11,7 @@ export const DressCode = () => {
 
       <div className={s.dressCode__wrapperDed}>
         <motion.p className={s.dressCode__description} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>
-          Мы очень ждем и с трепетом готовимся к нашиму дню! Будет здорово, если своими нарядами вы поодержите палитру нашей свадьбы
+          Мы с трепетом готовимся к нашему особому дню! Будет здорово, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы
         </motion.p>
         <motion.div
           className={s.dressCode__container}

@@ -20,11 +20,10 @@ export const Location = () => {
         <p>Шатер Хотим Едим</p>
         <p className={s.location__address}>г. Уфа, Озеро Архимандритское</p>
         <Image src="/location.png" alt="Location" width={440} height={320} className={s.location__image} />
+        <button className={s.location__button}>
+          <Link href="https://go.2gis.com/n25sT">Открыть карту</Link>
+        </button>
       </motion.div>
-
-      <motion.button className={s.location__button} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
-        <Link href="https://go.2gis.com/n25sT">Открыть карту</Link>
-      </motion.button>
     </motion.div>
   );
 };
