@@ -9,7 +9,7 @@ import s from "./Countdown.module.scss";
 
 export const Countdown = () => {
   const timeZone = "Asia/Yekaterinburg";
-  const weddingDate = useMemo(() => toZonedTime("2026-06-27T16:00:00", timeZone), [timeZone]);
+  const weddingDate = useMemo(() => toZonedTime("2026-06-27T15:00:00", timeZone), [timeZone]);
 
   const [timeLeft, setTimeLeft] = useState<{ label: string; value: number }[]>([]);
 
@@ -45,7 +45,7 @@ export const Countdown = () => {
 
   return (
     <div className={s.countdown}>
-      <p className={s.countdown__title}>свадьба через...</p>
+      <p className={s.countdown__title}>наша свадьба через...</p>
       <div className={s.countdown__container}>
         {timeLeft.map((item, index) => (
           <div key={index} className={s.countdown__wrapper}>

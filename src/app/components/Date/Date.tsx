@@ -28,7 +28,7 @@ export const DateComponents = () => {
       >
         <p className={s.date__week}>суббота</p>
         <p className={s.date__wedding}>27</p>
-        <p className={s.date__month}>июня</p>
+        <p></p>
       </motion.div>
       {datesAfter.map((date, index) => (
         <motion.p

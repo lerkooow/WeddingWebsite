@@ -6,10 +6,9 @@ import { DressCode } from "./components/DressCode";
 import { Form } from "./components/Form";
 import { Greetings } from "./components/Greetings";
 import { Location } from "./components/Location";
-import { Schedule } from "./components/Schedule";
 import { WelcomeSection } from "./components/WelcomeSection";
 import { Countdown } from "./components/Сountdown";
-import { DateComponents } from "./components/Date";
+import { DateWithPath } from "./components/DateWithPath";
 
 import s from "./page.module.scss";
 
@@ -20,11 +19,9 @@ export default function Home() {
         <WelcomeSection />
         <Greetings />
         <Image src="./flowers.svg" width={150} height={100} alt="flower" />
-        <DateComponents />
+        <DateWithPath />
         <Countdown />
-        <Image src="./flowers.svg" width={150} height={100} alt="flower" />
         <Location />
-        <Schedule />
         <DressCode />
         <Details />
         <Form />

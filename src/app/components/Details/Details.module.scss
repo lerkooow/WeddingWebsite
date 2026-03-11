@@ -9,18 +9,23 @@
 
   &__container {
     --r: 25px;
-    height: 300px;
-    aspect-ratio: 1.2;
     border-radius: 20px;
     color: #6a90b5;
-    background-color: #f9e3d6;
     mask: radial-gradient(var(--r) at var(--r), #0000 calc(100% - 1px), #000) calc(-1 * var(--r));
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 24px 32px;
+    gap: 20px;
+    padding: 40px 32px;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    // Акварельный фон: тёплая база + цветные пятна по углам
+    background:
+      radial-gradient(ellipse 200px 150px at 0% 0%, rgba(248, 210, 190, 0.9) 0%, transparent 70%), radial-gradient(ellipse 180px 180px at 100% 0%, rgba(196, 218, 237, 0.7) 0%, transparent 65%),
+      radial-gradient(ellipse 160px 140px at 100% 100%, rgba(237, 210, 196, 0.8) 0%, transparent 65%), radial-gradient(ellipse 200px 160px at 0% 100%, rgba(196, 218, 237, 0.6) 0%, transparent 70%),
+      #fdf5e9;
   }
 
   h3 {

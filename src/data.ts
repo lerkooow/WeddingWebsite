@@ -1,7 +1,6 @@
 type TSchedule = {
   time: string;
   title: string;
-  description: string;
 };
 
 type TDressCodeColor = {
@@ -12,23 +11,28 @@ export const schedule: TSchedule[] = [
   {
     time: "15:00",
     title: "Cбор гостей",
-    description: "Встречаемся в уютной атмосфере: игристое, лёгкий фуршет, музыка и тёплые объятия — начнём этот день вместе!",
   },
   {
     time: "16:00",
     title: "Начало нашей свадебной церемонии",
-    description: "Трогательные клятвы и искренние эмоции станут началом нашей общей истории",
   },
   {
     time: "17:00",
     title: "Банкет",
-    description: "Нас ждут изысканные блюда, тёплые тосты и весёлые танцы в кругу самых близких",
   },
   {
     time: "23:00",
     title: "Финал",
-    description: "Завершим этот прекрасный день душевной атмосферой, улыбками и счастливыми воспоминаниями",
   },
 ];
 
 export const drinksData: string[] = ["Не пью", "Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];
+
+export const dressCodeColors: { name: string; img: string }[] = [
+  { name: "Бежевый", img: "/beige.svg" },
+  { name: "Нежно-розовый", img: "/pink.svg" },
+  { name: "Молочный", img: "/milk.svg" },
+  { name: "Карамельный", img: "/caramel.svg" },
+  { name: "Нежно-голубой", img: "/blue.svg" },
+  { name: "Нежно-зеленый", img: "/green.svg" },
+];
