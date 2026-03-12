@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useScroll } from "framer-motion";
 import s from "./DateWithPath.module.scss";
 
 const PATH_D = `
@@ -31,30 +31,46 @@ const PATH_D = `
   C 100 582, 137 598, 164 612
 `;
 
-// Позиции пунктов тайминга — каждый индивидуально
-
 export const DateWithPath = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start 95%", "end 95%"],
   });
 
-  // Линия рисуется по мере скролла
-  const drawProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // Анимируем strokeDashoffset напрямую через rAF — минуем React render и Framer overhead
+  useEffect(() => {
+    const path = pathRef.current;
+    if (!path) return;
+
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = `${len}`;
+    path.style.strokeDashoffset = `${len}`;
+
+    let rafId: number;
+
+    const update = () => {
+      const p = scrollYProgress.get();
+      const off = len * (1 - Math.min(Math.max(p, 0), 1));
+      path.style.strokeDashoffset = `${off}`;
+      rafId = requestAnimationFrame(update);
+    };
+
+    rafId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(rafId);
+  }, [scrollYProgress]);
 
   const dates = ["24", "25", "26"];
   const datesAfter = ["28", "29", "30"];
 
   return (
     <div className={s.dwp} ref={sectionRef}>
-      {/* Заголовок */}
       <motion.h2 className={s.dwp__title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: true }}>
         июнь 2026 • суббота
       </motion.h2>
 
-      {/* Строка дат — оригинальный вид как в DateComponents */}
       <motion.div className={s.dwp__dates} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: true, amount: 0.5 }}>
         {dates.map((d, index) => (
           <motion.p
@@ -93,35 +109,11 @@ export const DateWithPath = () => {
         ))}
       </motion.div>
 
-      {/* Canvas: SVG + пункты тайминга */}
       <div className={s.dwp__canvas}>
         <svg viewBox="0 0 375 660" fill="none" xmlns="http://www.w3.org/2000/svg" className={s.dwp__svg}>
-          <defs>
-            <filter id="hd3" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" seed="12" result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G" />
-            </filter>
-          </defs>
-
-          {/* Видимая линия */}
-          <motion.path
-            d={PATH_D}
-            stroke="#a0bbd6"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            filter="url(#hd3)"
-            style={{ pathLength: drawProgress }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-          />
+          <path ref={pathRef} d={PATH_D} stroke="#a0bbd6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
 
-        {/* Пункты тайминга */}
-
-        {/* 15:00 — слева, у первого изгиба линии */}
         <motion.div
           className={s.dwp__item}
           style={{ top: 110, left: 85 }}
@@ -135,7 +127,6 @@ export const DateWithPath = () => {
           <p className={s.dwp__label}>Фуршет</p>
         </motion.div>
 
-        {/* 16:00 — справа, у правой петли */}
         <motion.div
           className={s.dwp__item}
           style={{ top: 240, right: 70 }}
@@ -149,7 +140,6 @@ export const DateWithPath = () => {
           <p className={s.dwp__label}>свадебной церемонии</p>
         </motion.div>
 
-        {/* 17:00 — слева, у перекрестья петли */}
         <motion.div
           className={s.dwp__item}
           style={{ top: 335, left: 10 }}
@@ -162,7 +152,6 @@ export const DateWithPath = () => {
           <p className={s.dwp__label}>Банкет</p>
         </motion.div>
 
-        {/* 23:00 — слева, внизу */}
         <motion.div
           className={s.dwp__item}
           style={{ top: 465, left: 35 }}

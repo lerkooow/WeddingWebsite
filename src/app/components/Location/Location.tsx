@@ -13,7 +13,10 @@ export const Location = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <h3>Место проведения</h3>
+      <span className={s.location__eyebrow}>location</span>
+      <div className={s.location__titleRow}>
+        <h3 className={s.location__title}>Локация</h3>
+      </div>
 
       <motion.div className={s.location__map} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
         <p>Шатер Хотим Едим</p>

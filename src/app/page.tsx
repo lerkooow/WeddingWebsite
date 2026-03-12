@@ -23,8 +23,14 @@ export default function Home() {
         <Countdown />
         <Location />
         <DressCode />
+        <Image src="./flowers.svg" width={150} height={100} alt="flower" />
         <Details />
         <Form />
+        <Image src="./flowers.svg" width={150} height={100} alt="flower" />
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "center", marginTop: "16px" }}>
+          <p style={{ fontSize: "24px" }}>С любовью</p>
+          <span>ваши Руслан и Валерия</span>
+        </div>
       </div>
     </div>
   );

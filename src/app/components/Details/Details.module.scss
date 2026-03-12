@@ -1,17 +1,14 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   align-items: center;
   margin-top: 48px;
   width: 100%;
-  font-family: var(--font-montserratAlt);
+  padding: 0 12px;
 
   &__container {
-    --r: 25px;
     border-radius: 20px;
     color: #6a90b5;
-    mask: radial-gradient(var(--r) at var(--r), #0000 calc(100% - 1px), #000) calc(-1 * var(--r));
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -21,28 +18,42 @@
     position: relative;
     overflow: hidden;
 
-    // Акварельный фон: тёплая база + цветные пятна по углам
     background:
       radial-gradient(ellipse 200px 150px at 0% 0%, rgba(248, 210, 190, 0.9) 0%, transparent 70%), radial-gradient(ellipse 180px 180px at 100% 0%, rgba(196, 218, 237, 0.7) 0%, transparent 65%),
       radial-gradient(ellipse 160px 140px at 100% 100%, rgba(237, 210, 196, 0.8) 0%, transparent 65%), radial-gradient(ellipse 200px 160px at 0% 100%, rgba(196, 218, 237, 0.6) 0%, transparent 70%),
       #fdf5e9;
   }
 
-  h3 {
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 24px;
-    max-width: 290px;
-    font-family: var(--font-montserrat);
+  &__eyebrow {
+    font-size: 14px;
+    text-transform: lowercase;
+    color: #a0bbd6;
+    margin-bottom: 4px;
+  }
+
+  &__titleRow {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 40px;
+    color: #4a6a8a;
+    margin: 0;
+    line-height: 1.05;
+    padding-bottom: 24px;
   }
 
   p {
     text-align: center;
     font-size: 16px;
+    font-family: var(--font-montserratAlt);
   }
 
   a {
-    color: #2d5a86;
+    color: #4a6a8a;
     font-weight: 700;
   }
 }

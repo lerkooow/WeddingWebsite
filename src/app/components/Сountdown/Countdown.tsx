@@ -32,8 +32,8 @@ export const Countdown = () => {
     setTimeLeft([
       { value: days, label: declension(days, ["день", "дня", "дней"]) },
       { value: hours, label: declension(hours, ["час", "часа", "часов"]) },
-      { value: minutes, label: declension(minutes, ["минута", "минуты", "минут"]) },
-      { value: seconds, label: declension(seconds, ["секунда", "секунды", "секунд"]) },
+      { value: minutes, label: declension(minutes, ["минуту", "минуты", "минут"]) },
+      { value: seconds, label: declension(seconds, ["секунду", "секунды", "секунд"]) },
     ]);
   }, [weddingDate]);
 
@@ -45,17 +45,19 @@ export const Countdown = () => {
 
   return (
     <div className={s.countdown}>
-      <p className={s.countdown__title}>наша свадьба через...</p>
-      <div className={s.countdown__container}>
-        {timeLeft.map((item, index) => (
-          <div key={index} className={s.countdown__wrapper}>
-            <div className={s.countdown__date}>
-              <p>{item.value}</p>
-              <span>{item.label}</span>
+      <div className={s.countdown__box}>
+        <p className={s.countdown__title}>наша свадьба через...</p>
+        <div className={s.countdown__container}>
+          {timeLeft.map((item, index) => (
+            <div key={index} className={s.countdown__wrapper}>
+              <div className={s.countdown__date}>
+                <p>{item.value}</p>
+                <span>{item.label}</span>
+              </div>
+              {index < timeLeft.length - 1 && <p className={s.countdown__separator}>:</p>}
             </div>
-            {index < timeLeft.length - 1 && <p className={s.countdown__separator}>:</p>}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

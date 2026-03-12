@@ -21,7 +21,7 @@ const DrinksBlock = ({ drinks, toggleDrink, otherDrink, setOtherDrink }: { drink
     ))}
     <div className={s.form__item}>
       <label>Свой вариант:</label>
-      <input className={s.form__input} placeholder="Другое" value={otherDrink} onChange={(e) => setOtherDrink(e.target.value)} />
+      <input className={s.form__input} placeholder="Напишите свой вариант" value={otherDrink} onChange={(e) => setOtherDrink(e.target.value)} />
     </div>
   </div>
 );
@@ -98,7 +98,12 @@ export const Form = () => {
 
   return (
     <div className={s.form}>
-      <h3>Анкета гостя</h3>
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "center" }}>
+        <span className={s.form__eyebrow}>guest form</span>
+        <div className={s.form__titleRow}>
+          <h3 className={s.form__title}>Анкета гостя</h3>
+        </div>
+      </div>
       <form className={s.form__wrapper} onSubmit={handleSubmit}>
         <div className={s.form__radioGroup}>
           <p>Вы будете присутствовать?</p>

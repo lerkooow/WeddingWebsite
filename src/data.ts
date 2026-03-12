@@ -26,13 +26,13 @@ export const schedule: TSchedule[] = [
   },
 ];
 
-export const drinksData: string[] = ["Не пью", "Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];
+export const drinksData: string[] = ["Безалкогольные напитки (можете написать свой вариант)", "Вино Белое", "Вино Красное", "Виски", "Водка", "Шампанское"];
 
 export const dressCodeColors: { name: string; img: string }[] = [
   { name: "Бежевый", img: "/beige.svg" },
-  { name: "Нежно-розовый", img: "/pink.svg" },
-  { name: "Молочный", img: "/milk.svg" },
-  { name: "Карамельный", img: "/caramel.svg" },
   { name: "Нежно-голубой", img: "/blue.svg" },
+  { name: "Молочный", img: "/milk.svg" },
+  { name: "Нежно-розовый", img: "/pink.svg" },
+  { name: "Карамельный", img: "/caramel.svg" },
   { name: "Нежно-зеленый", img: "/green.svg" },
 ];
