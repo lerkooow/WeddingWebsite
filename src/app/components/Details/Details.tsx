@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import s from "./Details.module.scss";
 
 export const Details = () => {

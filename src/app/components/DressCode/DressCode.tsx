@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
+
 import { motion } from "framer-motion";
 
 import { dressCodeColors } from "@/data";
+
 import s from "./DressCode.module.scss";
-import Link from "next/link";
 
 export const DressCode = () => {
   return (

@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import { motion } from "framer-motion";
 
 import s from "./Location.module.scss";
-import Link from "next/link";
 
 export const Location = () => {
   return (

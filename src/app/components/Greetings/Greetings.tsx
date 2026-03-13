@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import s from "./Greetings.module.scss";
 
 export const Greetings = () => {

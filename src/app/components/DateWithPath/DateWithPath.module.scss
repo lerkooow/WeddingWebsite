@@ -5,111 +5,100 @@
   width: 375px;
   margin-top: 48px;
   position: relative;
-}
 
-/* Заголовок */
-.dwp__title {
-  font-family: var(--font-montserratAlt);
-  font-size: 16px;
-  letter-spacing: 0.22em;
-  color: #4a6a8a;
-  text-transform: uppercase;
-  margin: 0 0 18px;
-}
-
-/* Строка дат */
-.dwp__dates {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.dwp__day {
-  font-size: 18px;
-  padding: 8px;
-  border: 1px solid #fbeadd;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-
-/* Центральный блок с 27 и сердцем */
-.dwp__event {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.dwp__week {
-  font-family: var(--font-montserratAlt);
-  font-size: 8px;
-  color: #6a90b5;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
-}
-
-.dwp__wedding {
-  font-size: 20px;
-  position: relative;
-  z-index: 1;
-  padding: 14px;
-  color: #4a6a8a;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 55px;
-    height: 55px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    background: url("/heart.svg") no-repeat center;
-    background-size: contain;
+  &__title {
+    font-family: var(--font-montserratAlt);
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    color: #4a6a8a;
+    text-transform: uppercase;
+    margin: 0 0 18px;
   }
-}
 
-.dwp__canvas {
-  width: 375px;
-  height: 660px;
-  top: -58px;
-  position: relative;
-  right: 7px;
-}
+  &__dates {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
-.dwp__svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  will-change: transform;
-}
+  &__day {
+    font-size: 18px;
+    padding: 8px;
+    border: 1px solid #fbeadd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
 
-.dwp__item {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  min-width: 150px;
-  max-width: 250px;
-  align-items: center;
-}
+  &__event {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+  }
 
-.dwp__time {
-  font-family: var(--font-montserrat);
-  font-size: 24px;
-  font-weight: 700;
-  color: #4a6a8a;
-  margin: 0 0 2px;
-  line-height: 1;
-}
+  &__wedding {
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    padding: 14px;
+    color: #4a6a8a;
 
-.dwp__label {
-  font-family: var(--font-montserratAlt);
-  font-size: 14px;
-  color: #6a90b5;
-  opacity: 0.85;
-  text-align: center;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      background: url("/heart.svg") no-repeat center;
+      background-size: contain;
+    }
+  }
+
+  &__canvas {
+    width: 375px;
+    height: 660px;
+    top: -58px;
+    position: relative;
+    right: 7px;
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    will-change: transform;
+  }
+
+  &__item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 250px;
+    align-items: center;
+  }
+
+  &__time {
+    font-family: var(--font-montserrat);
+    font-size: 24px;
+    font-weight: 700;
+    color: #4a6a8a;
+    margin: 0 0 2px;
+    line-height: 1;
+  }
+
+  &__label {
+    font-family: var(--font-montserratAlt);
+    font-size: 14px;
+    color: #6a90b5;
+    opacity: 0.85;
+    text-align: center;
+  }
 }
