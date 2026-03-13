@@ -1,5 +1,6 @@
 "use client";
 
+import { submitAttendance } from "@/app/actions";
 import { useState } from "react";
 
 export type Attendance = "yes" | "no" | "plus" | "";
@@ -38,7 +39,6 @@ export const useForm = () => {
 
     try {
       const formData = new FormData();
-
       formData.append("attendance", attendance);
       formData.append("fullName", fullName);
       formData.append("plusOneName", plusOneName);
@@ -47,17 +47,11 @@ export const useForm = () => {
       formData.append("otherDrink", otherDrink);
       formData.append("allergies", allergies);
 
-      const res = await fetch("https://script.google.com/macros/s/AKfycbw4llP80CCsCfcPU-n4J8fSvWJW3aMXRIqen57RzNTSPtHVwVvLMS7t69-xOmcxrPz2Jg/exec", {
-        method: "POST",
-        body: formData,
-      });
+      const result = await submitAttendance(formData);
 
-      const data = await res.json();
-
-      if (data.result === "success") {
+      if (result.success) {
         setStatus("success");
         setShowSuccessModal(true);
-
         setAttendance("");
         setFullName("");
         setPlusOneName("");
@@ -66,7 +60,7 @@ export const useForm = () => {
         setOtherDrink("");
         setAllergies("");
       } else {
-        throw new Error("Ошибка отправки");
+        throw new Error(result.error);
       }
     } catch (err) {
       console.error(err);
