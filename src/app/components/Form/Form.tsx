@@ -107,7 +107,13 @@ export const Form = () => {
         {attendance && (
           <div className={s.form__button}>
             <button type="submit" className={s.form__submitBtn} disabled={status === "loading" || !isFormValid}>
-              {status === "loading" ? <Image src="/loading.svg" alt="Loading" width={20} height={20} /> : "Отправить"}
+              {status === "loading" ? (
+                <span className={s.form__spinner}>
+                  <Image src="/loading.svg" alt="Loading" width={20} height={20} />
+                </span>
+              ) : (
+                "Отправить"
+              )}
             </button>
           </div>
         )}
