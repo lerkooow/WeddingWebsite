@@ -23,7 +23,6 @@ export default function Home() {
         <Countdown />
         <Location />
         <DressCode />
-        <Image src="./flowers.svg" width={150} height={100} alt="flower" />
         <Details />
         <Form />
         <Image src="./flowers.svg" width={150} height={100} alt="flower" />

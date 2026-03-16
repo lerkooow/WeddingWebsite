@@ -1,14 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import { useRef, useState } from "react";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { dressCodeColors } from "@/data";
 
 import s from "./DressCode.module.scss";
 
 export const DressCode = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [showHint, setShowHint] = useState(true);
+
+  const handleScroll = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 32;
+    setShowHint(!atEnd);
+  };
+
   return (
     <section className={s.dressCode}>
       <motion.div className={s.dressCode__header} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }} viewport={{ once: true }}>
@@ -19,7 +30,7 @@ export const DressCode = () => {
       </motion.div>
 
       <div className={s.dressCode__carouselWrap}>
-        <div className={s.dressCode__carousel}>
+        <div className={s.dressCode__carousel} ref={carouselRef} onScroll={handleScroll}>
           {dressCodeColors.map((color, index) => (
             <motion.div
               key={color.img}
@@ -36,11 +47,16 @@ export const DressCode = () => {
           ))}
         </div>
 
-        <motion.div className={s.dressCode__scrollHint} initial={{ opacity: 0, x: -6 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.5 }} viewport={{ once: true }}>
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M5 9H13M13 9L9.5 5.5M13 9L9.5 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </motion.div>
+        <AnimatePresence>
+          {showHint && (
+            <motion.div className={s.dressCode__scrollHint} initial={{ opacity: 0, x: 6 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.3 }}>
+              <svg width="28" height="28" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="11" fill="#a0bbd6b0" />
+                <path d="M8 11H14M14 11L11 8M14 11L11 14" stroke="#fdf5e9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <motion.div className={s.dressCode__footer} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>

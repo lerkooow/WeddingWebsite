@@ -7,7 +7,6 @@
 
   &__eyebrow {
     font-size: 14px;
-    text-transform: lowercase;
     color: #a0bbd6;
     margin-bottom: 4px;
   }
@@ -193,31 +192,44 @@
 
   &__submitBtn {
     width: 100%;
-    height: 44px;
-    font-size: 12px;
-    border-radius: 24px;
-    border: 1px solid #6a90b5;
-    background-color: #fefaf020;
-    transition: background-color 0.3s ease;
-    color: #6a90b5;
+    height: 48px;
+    font-size: 13px;
+    border-radius: 100px;
+    border: none;
+    background-color: #6a90b5de;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+    color: #fdf5e9;
     text-decoration: none;
     display: flex;
     justify-content: center;
-    padding: 13px 0;
+    align-items: center;
+    padding: 0;
     cursor: pointer;
     text-transform: uppercase;
     font-family: var(--font-montserrat);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
+    font-weight: 600;
 
     &:hover {
-      background-color: #6a90b51f;
+      background-color: #4a6a8a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(106, 144, 181, 0.45);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(106, 144, 181, 0.3);
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.45;
       cursor: not-allowed;
-      background-color: #6a90b51f;
-      border: 1px solid #6a90b51f;
+      transform: none;
+      box-shadow: none;
+      background-color: #a0bbd691;
     }
   }
 

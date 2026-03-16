@@ -4,7 +4,7 @@
   width: 100%;
   background-color: #fdf5e9;
   overflow: hidden;
-  margin: 4px 0 48px 0;
+  margin: 4px 0 0 0;
 
   &__header {
     padding: 0 0 24px 0;
@@ -16,7 +16,6 @@
 
   &__eyebrow {
     font-size: 14px;
-    text-transform: lowercase;
     color: #a0bbd6;
     margin: 0;
   }
@@ -92,18 +91,16 @@
 
   &__scrollHint {
     position: absolute;
-    right: 8px;
-    top: 50%;
+    right: 4px;
+    top: 112px;
     transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(160, 187, 214, 0.2);
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #a0bbd6;
     pointer-events: none;
+    filter: drop-shadow(0 2px 8px rgba(74, 106, 138, 0.3));
   }
 
   &__footer {

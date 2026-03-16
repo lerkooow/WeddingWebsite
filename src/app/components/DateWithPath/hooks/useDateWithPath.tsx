@@ -34,7 +34,7 @@ export const useDateWithPath = () => {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 95%", "end 95%"],
+    offset: ["start 80%", "end 95%"],
   });
 
   useEffect(() => {
