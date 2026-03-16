@@ -13,9 +13,9 @@ import { WelcomeSection } from "./components/WelcomeSection";
 import { Countdown } from "./components/Сountdown";
 import { DateWithPath } from "./components/DateWithPath";
 import { PageLoader } from "./components/PageLoader";
+import { Footer } from "./components/Footer/Footer";
 
 import s from "./page.module.scss";
-import { Footer } from "./components/Footer/Footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

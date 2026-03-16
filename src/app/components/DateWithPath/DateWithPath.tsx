@@ -6,6 +6,34 @@ import { PATH_D, useDateWithPath } from "./hooks/useDateWithPath";
 
 import s from "./DateWithPath.module.scss";
 
+type ScheduleItemProps = {
+  top: number;
+  left?: number;
+  right?: number;
+  time: string;
+  labels: string[];
+  direction: "left" | "right";
+  delay: number;
+};
+
+const ScheduleItem = ({ top, left, right, time, labels, direction, delay }: ScheduleItemProps) => (
+  <motion.div
+    className={s.dwp__item}
+    style={{ top, left, right }}
+    initial={{ opacity: 0, x: direction === "left" ? -22 : 22 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, amount: 0.8 }}
+    transition={{ duration: 0.5, delay, ease: "easeOut" }}
+  >
+    <p className={s.dwp__time}>{time}</p>
+    {labels.map((label) => (
+      <p key={label} className={s.dwp__label}>
+        {label}
+      </p>
+    ))}
+  </motion.div>
+);
+
 export const DateWithPath = () => {
   const { sectionRef, pathRef, dates, datesAfter } = useDateWithPath();
   return (
@@ -57,55 +85,10 @@ export const DateWithPath = () => {
           <path ref={pathRef} d={PATH_D} stroke="#a0bbd6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
 
-        <motion.div
-          className={s.dwp__item}
-          style={{ top: 110, left: 85 }}
-          initial={{ opacity: 0, x: -18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <p className={s.dwp__time}>15:00</p>
-          <p className={s.dwp__label}>Сбор гостей</p>
-          <p className={s.dwp__label}>Фуршет</p>
-        </motion.div>
-
-        <motion.div
-          className={s.dwp__item}
-          style={{ top: 240, right: 70 }}
-          initial={{ opacity: 0, x: 18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <p className={s.dwp__time}>16:00</p>
-          <p className={s.dwp__label}>Начало нашей</p>
-          <p className={s.dwp__label}>свадебной церемонии</p>
-        </motion.div>
-
-        <motion.div
-          className={s.dwp__item}
-          style={{ top: 335, left: 10 }}
-          initial={{ opacity: 0, x: -18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <p className={s.dwp__time}>17:00</p>
-          <p className={s.dwp__label}>Банкет</p>
-        </motion.div>
-
-        <motion.div
-          className={s.dwp__item}
-          style={{ top: 465, left: 35 }}
-          initial={{ opacity: 0, x: -18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <p className={s.dwp__time}>23:00</p>
-          <p className={s.dwp__label}>Трогательное завершение нашего свадебного дня</p>
-        </motion.div>
+        <ScheduleItem top={110} left={85} time="15:00" labels={["Сбор гостей", "Фуршет"]} direction="left" delay={0} />
+        <ScheduleItem top={240} right={70} time="16:00" labels={["Начало нашей", "свадебной церемонии"]} direction="right" delay={0} />
+        <ScheduleItem top={335} left={10} time="17:00" labels={["Банкет"]} direction="left" delay={0} />
+        <ScheduleItem top={465} left={35} time="23:00" labels={["Трогательное завершение нашего свадебного дня"]} direction="left" delay={0} />
       </div>
     </div>
   );
