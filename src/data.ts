@@ -34,5 +34,6 @@ export const dressCodeColors: { name: string; img: string }[] = [
   { name: "Молочный", img: "/milk.svg" },
   { name: "Нежно-розовый", img: "/pink.svg" },
   { name: "Карамельный", img: "/caramel.svg" },
-  { name: "Нежно-зеленый", img: "/green.svg" },
+  { name: "Нежно-желтый", img: "/yellow2.jpg" },
+  { name: "Нежно-зеленый", img: "/green1.jpg" },
 ];
