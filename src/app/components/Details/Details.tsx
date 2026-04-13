@@ -5,9 +5,11 @@ import s from "./Details.module.scss";
 export const Details = () => {
   return (
     <motion.div className={s.details} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: true, amount: 0.2 }}>
-      <span className={s.details__eyebrow}>details</span>
+      <span className={s.details__eyebrow}>organizational details</span>
       <div className={s.details__titleRow}>
-        <h3 className={s.details__title}>Детали</h3>
+        <h3 className={s.details__title}>
+          ОРГАНИЗАЦИОННЫЕ <span>моменты</span>
+        </h3>
       </div>
 
       <div className={s.details__container}>

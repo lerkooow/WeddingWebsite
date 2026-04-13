@@ -34,10 +34,12 @@ export const Form = () => {
 
   return (
     <div className={s.form}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "center" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
         <span className={s.form__eyebrow}>guest form</span>
         <div className={s.form__titleRow}>
-          <h3 className={s.form__title}>Анкета гостя</h3>
+          <h3 className={s.form__title}>
+            АНКЕТА <span>гостя</span>
+          </h3>
         </div>
       </div>
       <form className={s.form__wrapper} onSubmit={handleSubmit}>
@@ -45,8 +47,8 @@ export const Form = () => {
           <p>Вы будете присутствовать?</p>
           {[
             { value: "yes", label: "Да, обязательно!" },
-            { value: "no", label: "Нет, к сожалению(" },
             { value: "plus", label: "Да, и буду с парой" },
+            { value: "no", label: "Нет, к сожалению(" },
           ].map(({ value, label }) => (
             <div key={value} className={s.form__radio}>
               <input type="radio" id={`attendance-${value}`} name="attendance" checked={attendance === value} onChange={() => setAttendance(value as Attendance)} />
@@ -76,7 +78,7 @@ export const Form = () => {
             </div>
             <div className={s.form__item}>
               <label>Аллергия, предпочтения по еде (рыба, мясо, веганское и т.д.)</label>
-              <input className={s.form__input} placeholder="У меня аллергия на..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
+              <input className={s.form__input} placeholder="Я предпочитаю..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
             </div>
             <DrinksBlock drinks={drinks} toggleDrink={toggleDrink} otherDrink={otherDrink} setOtherDrink={setOtherDrink} />
           </div>
@@ -98,7 +100,7 @@ export const Form = () => {
             </div>
             <div className={s.form__item}>
               <label>Аллергия, предпочтения по еде (рыба, мясо, веганское и т.д.)</label>
-              <input className={s.form__input} placeholder="У меня аллергия на..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
+              <input className={s.form__input} placeholder="Я предпочитаю..." value={allergies} onChange={(e) => setAllergies(e.target.value)} />
             </div>
             <DrinksBlock drinks={drinks} toggleDrink={toggleDrink} otherDrink={otherDrink} setOtherDrink={setOtherDrink} />
           </div>

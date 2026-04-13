@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <div className={s.footer}>
       <p>С любовью</p>
-      <span>ваши Руслан и Валерия</span>
+      <span>Ваши Руслан и Валерия</span>
     </div>
   );
 };

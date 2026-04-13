@@ -25,7 +25,9 @@ export const DressCode = () => {
       <motion.div className={s.dressCode__header} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }} viewport={{ once: true }}>
         <span className={s.dressCode__eyebrow}>dress code</span>
         <div className={s.dressCode__titleRow}>
-          <h3 className={s.dressCode__title}>Дресс-код</h3>
+          <h3 className={s.dressCode__title}>
+            ДРЕСС-КОД <span>мероприятия</span>
+          </h3>
         </div>
       </motion.div>
 
@@ -60,9 +62,11 @@ export const DressCode = () => {
       </div>
 
       <motion.div className={s.dressCode__footer} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
-        <p className={s.dressCode__description}>Мы будем рады, если вы поддержите нашу цветовую гамму. Для мужчин — тёмный или светлый низ и светлый верх.</p>
-        <Link href="" className={s.dressCode__button}>
-          Подборка нарядов
+        <p className={s.dressCode__description}>
+          Мы будем очень рады, если вы <span>поддержите</span> цветовую гамму свадьбы
+        </p>
+        <Link href="https://disk.yandex.ru/d/tzaIFHlIN-bMpw" target="_blank" className={s.dressCode__button}>
+          Примеры цветовой палитры
         </Link>
       </motion.div>
     </section>

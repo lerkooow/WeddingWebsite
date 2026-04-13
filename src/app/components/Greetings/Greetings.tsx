@@ -11,7 +11,15 @@ export const Greetings = () => {
       transition={{ duration: 0.7, ease: "easeOut", delay: 1 }}
       viewport={{ once: true, amount: 0.5 }}
     >
-      <p>Дорогие родные и близкие, мы начинаем новую главу нашей жизни и будем счастливы, если вы разделите этот день вместе с нами!</p>
+      <p className={s.greetings__title}>
+        ДОРОГИЕ <span>наши</span>
+        <br /> РОДНЫЙ И БЛИЗКИЕ!
+      </p>
+      <p className={s.greetings__description}>
+        Мы начинаем новую главу нашей жизни
+        <br /> и будем счастливы, если вы разделите этот
+        <br /> день вместе с нами!
+      </p>
     </motion.div>
   );
 };
