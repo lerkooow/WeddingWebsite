@@ -9,19 +9,25 @@
 
   &__title {
     font-size: 24px;
-    font-family: var(--font-montserrat);
     text-align: center;
     letter-spacing: -3%;
-    line-height: 0.9;
+    font-family: var(--font-comfortaa);
+    font-weight: 300;
 
     span {
       font-size: 48px;
-      font-family: var(--font-great);
     }
   }
 
   &__description {
     text-align: center;
     color: #a0bbd6;
+    font-family: var(--font-montserrat);
+    max-width: 350px;
+  }
+
+  &__musicDescription {
+    font-size: 12px;
+    text-align: center;
   }
 }

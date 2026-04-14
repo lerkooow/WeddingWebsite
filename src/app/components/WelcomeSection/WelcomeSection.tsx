@@ -12,7 +12,7 @@ const FlowersFg = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   return (
     <motion.div className={s.welcomeSection__flowersFg} style={{ y }}>
-      <Image src="/flowers-bg.png" alt="" fill className={s.welcomeSection__flowersImg} />
+      <Image src="/Image.png" alt="" fill className={s.welcomeSection__flowersImg} />
     </motion.div>
   );
 };

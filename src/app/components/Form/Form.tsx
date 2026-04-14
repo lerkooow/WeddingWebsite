@@ -37,9 +37,7 @@ export const Form = () => {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <span className={s.form__eyebrow}>guest form</span>
         <div className={s.form__titleRow}>
-          <h3 className={s.form__title}>
-            АНКЕТА <span>гостя</span>
-          </h3>
+          <h3 className={s.form__title}>АНКЕТА ГОСТЯ</h3>
         </div>
       </div>
       <form className={s.form__wrapper} onSubmit={handleSubmit}>

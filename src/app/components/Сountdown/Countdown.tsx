@@ -3,12 +3,14 @@
 import { useCountdown } from "./hooks/useCountdown";
 
 import s from "./Countdown.module.scss";
+import Image from "next/image";
 
 export const Countdown = () => {
   const { timeLeft } = useCountdown();
 
   return (
     <div className={s.countdown}>
+      <Image src="./flowers.svg" width={150} height={100} alt="flower" className={s.countdown__flowers} />
       <div className={s.countdown__box}>
         <p className={s.countdown__title}>наша свадьба через...</p>
         <div className={s.countdown__container}>

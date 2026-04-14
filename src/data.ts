@@ -3,10 +3,6 @@ type TSchedule = {
   title: string;
 };
 
-type TDressCodeColor = {
-  color: string;
-};
-
 export const schedule: TSchedule[] = [
   {
     time: "15:00",

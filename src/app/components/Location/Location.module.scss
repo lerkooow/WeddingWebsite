@@ -21,15 +21,16 @@
   &__title {
     font-size: 24px;
     color: #6a90b5;
+    font-family: var(--font-comfortaa);
     margin: 0;
-    line-height: 0.9;
+    line-height: 1;
     padding-bottom: 8px;
     font-weight: 400;
     margin-left: 24px;
 
     span {
-      font-size: 40px;
-      font-family: var(--font-great);
+      // font-size: 40px;
+      // font-family: var(--font-great);
     }
   }
 
@@ -48,11 +49,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 8px;
+    gap: 4px;
+    margin-top: 8px;
 
     span {
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 500;
+      font-family: var(--font-comfortaa);
     }
   }
 

@@ -24,9 +24,10 @@
 
   &__eyebrow {
     font-size: 14px;
-    color: #a0bbd6;
+    color: #a0bbd6 !important;
     margin-bottom: 4px;
     margin-left: 12px;
+    font-weight: 400 !important;
   }
 
   &__titleRow {
@@ -40,10 +41,11 @@
     font-size: 24px;
     color: #4a6a8a;
     margin: 0;
-    line-height: 0.9;
+    line-height: 1;
     padding-bottom: 24px;
     text-transform: uppercase;
     color: #6a90b5;
+    font-family: var(--font-comfortaa);
     font-weight: 400;
 
     span {
@@ -60,8 +62,30 @@
     font-family: var(--font-montserratAlt);
   }
 
-  a {
+  span {
     color: #4a6a8a;
     font-weight: 700;
+  }
+
+  &__button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #a0bbd6;
+    text-decoration: none;
+    color: #fdf5e9 !important;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 20px;
+    padding: 7px 16px;
+    margin-top: 4px;
+
+    &:hover {
+      background-color: #516b88;
+    }
+
+    span {
+      color: #fdf5e9 !important;
+      font-weight: 300 !important;
+    }
   }
 }

@@ -8,14 +8,16 @@
   &__eyebrow {
     font-size: 14px;
     color: #a0bbd6;
+    margin-bottom: 4px;
   }
 
   &__title {
     font-size: 24px;
     color: #6a90b5;
     margin: 0;
-    line-height: 0.6;
+    line-height: 1;
     padding-bottom: 24px;
+    font-family: var(--font-comfortaa);
     font-weight: 400;
 
     span {

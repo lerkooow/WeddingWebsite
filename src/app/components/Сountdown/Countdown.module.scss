@@ -4,14 +4,20 @@
   position: relative;
   z-index: 2;
 
+  &__flowers {
+    position: absolute;
+    top: -150px;
+    left: 140px;
+  }
+
   &__box {
-    padding: 48px 0;
-    margin: -120px 0;
+    padding: 64px 0;
+    margin: -106px 0;
     color: #6a90b5;
     background-color: #f9e3d6;
     width: 100%;
     font-family: var(--font-great);
-    height: 250px;
+    height: 280px;
     border-radius: 20px;
     mask: radial-gradient(var(--r) at var(--r), #0000 calc(100% - 1px), #000) calc(-1 * var(--r));
     background:

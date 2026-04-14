@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 
-import { Libre_Caslon_Display, Italianno, Alumni_Sans, Great_Vibes, Montserrat_Alternates, Montserrat } from "next/font/google";
+import { Great_Vibes, Montserrat_Alternates, Montserrat, Comfortaa } from "next/font/google";
 
 import "./globals.scss";
-
-const libre = Libre_Caslon_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-libre",
-});
 
 const greatVibes = Great_Vibes({
   subsets: ["latin", "cyrillic"],
@@ -31,16 +25,10 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-const italianno = Italianno({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-italianno",
-});
-
-const alumniSans = Alumni_Sans({
+const comfortaa = Comfortaa({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "700"],
-  variable: "--font-alumni",
+  weight: ["300", "400", "700"],
+  variable: "--font-comfortaa",
 });
 
 export const metadata: Metadata = {
@@ -54,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${montserratAlternates.variable} ${montserrat.variable} ${greatVibes.variable} ${libre.variable} ${italianno.variable} ${alumniSans.variable}`}>{children}</body>
+      <body className={`${montserratAlternates.variable} ${montserrat.variable} ${greatVibes.variable} ${comfortaa.variable}`}>{children}</body>
     </html>
   );
 }

@@ -7,7 +7,7 @@ import { toZonedTime } from "date-fns-tz";
 
 export const useCountdown = () => {
   const timeZone = "Asia/Yekaterinburg";
-  const weddingDate = useMemo(() => toZonedTime("2026-06-27T15:00:00", timeZone), [timeZone]);
+  const weddingDate = useMemo(() => toZonedTime("2026-06-27T15:30:00", timeZone), [timeZone]);
 
   const [timeLeft, setTimeLeft] = useState<{ label: string; value: number }[]>([]);
 

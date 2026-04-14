@@ -19,7 +19,7 @@ export const Location = () => {
         <h3 className={s.location__title}>
           МЕСТО ПРОВЕДЕНИЯ
           <br />
-          <span>торжества</span>
+          ТОРЖЕСТВА
         </h3>
       </div>
       <p className={s.location__description}>

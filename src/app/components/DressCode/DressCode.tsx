@@ -25,9 +25,7 @@ export const DressCode = () => {
       <motion.div className={s.dressCode__header} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }} viewport={{ once: true }}>
         <span className={s.dressCode__eyebrow}>dress code</span>
         <div className={s.dressCode__titleRow}>
-          <h3 className={s.dressCode__title}>
-            ДРЕСС-КОД <span>мероприятия</span>
-          </h3>
+          <h3 className={s.dressCode__title}>ДРЕСС-КОД</h3>
         </div>
       </motion.div>
 
