@@ -48,7 +48,7 @@ export const Greetings = () => {
     >
       <p className={s.greetings__title}>
         ДОРОГИЕ НАШИ
-        <br /> РОДНЫЙ И БЛИЗКИЕ!
+        <br /> РОДНЫЕ И БЛИЗКИЕ!
       </p>
       <hr style={{ border: "none", backgroundColor: "#6a90b5", height: "1px", width: "64px" }} />
       <audio id="myAudio" src="/music.mp3" ref={audioRef} style={{ display: "none" }} />
