@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-
 import { Great_Vibes, Montserrat_Alternates, Montserrat, Comfortaa } from "next/font/google";
-
 import "./globals.scss";
 
 const greatVibes = Great_Vibes({
@@ -33,6 +31,22 @@ const comfortaa = Comfortaa({
 
 export const metadata: Metadata = {
   title: "Приглашение на свадьбу — Руслан&Валерия",
+  icons: {
+    icon: [
+      {
+        url: "/wedding_icon.svg",
+        sizes: "any",
+        type: "image/svg",
+      },
+    ],
+    apple: [
+      {
+        url: "/wedding_icon.svg",
+        sizes: "180x180",
+        type: "image/svg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
