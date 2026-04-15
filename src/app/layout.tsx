@@ -32,7 +32,7 @@ const comfortaa = Comfortaa({
 });
 
 export const metadata: Metadata = {
-  title: "Wedding Website",
+  title: "Приглашение на свадьбу — Руслан&Валерия",
 };
 
 export default function RootLayout({

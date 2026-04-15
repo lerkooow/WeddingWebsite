@@ -34,7 +34,7 @@ export const ContactsModal = ({ closeContactsModal }: TContactsModalProps) => {
           </svg>
         </button>
 
-        <p className={s.modal__sub}>Вы можете связаться с Анастасией любым удобным вам способом</p>
+        <p className={s.modal__sub}>Вы можете связаться с Анастасией любым удобным Вам способом</p>
         <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexDirection: "column" }}>
           <Link href="" className={s.modal__button} onClick={handleCopyClick}>
             {isCopied ? "Номер скопирован!" : "Скопировать номер"}
